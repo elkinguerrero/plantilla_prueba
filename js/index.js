@@ -1,11 +1,16 @@
 $(document).ready(function(){
     var data;
     var validar = false;
+    var tamano = "768";
     const v_info={
         url:'http://localhost:3002/service?url=http://34.66.136.41',
         api_key:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDQ1ODY3MzUsImp0aSI6InJHQ3ZISk1KSHFLaExVbEZjUUxSS1ZxYmxDOVJCczdBd3FLTi0wSFpEZzhpV016UkhYUE5oYWFSRlFHYVVleThFQUljeC1JSC1lRkExaGNqIn0.1BWz6BKR1zylSdTjD4dMYFgxUIi-dGctvjF3ORUvunE',
     }
     v_info.ip = window.location.origin;
+    
+    if( window.location.search.split("height=").length > 1 ){
+        tamano = window.location.search.split("height=")[1];
+    }
     
     if (typeof(Storage) !== "undefined") {
         if(localStorage.getItem("data") == 'null' || localStorage.getItem("data") == null){
@@ -67,7 +72,7 @@ $(document).ready(function(){
                 "var divElement = document.getElementById('viz1605882710419');"+
                 "var vizElement = divElement.getElementsByTagName('object')[0];"+
                 "vizElement.style.width='100%';"+
-                "vizElement.style.height='768px';"+
+                "vizElement.style.height='"+tamano+"px';"+
                 
                 "var scriptElement = document.createElement('script');"+
                 "scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';"+
@@ -75,6 +80,42 @@ $(document).ready(function(){
             "</script>"
         )
     })
+
+    $('.contenedor').html(
+        "<div class='tableauPlaceholder' id='viz1605882710419' style='position: relative'>"+
+            "<noscript>"+
+                "<a href='#'>"+
+                    "<img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ta&#47;Tablero1-Intro&#47;Tablero1-INTRO&#47;1_rss.png' style='border: none' />"+
+                "</a>"+
+            "</noscript>"+
+            "<object class='tableauViz'  style='display:none;'>"+
+                "<param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />"+
+                "<param name='embed_code_version' value='3' />"+
+                "<param name='site_root' value='' />"+
+                "<param name='name' value='Tablero1-Intro&#47;Tablero1-INTRO' />"+
+                "<param name='tabs' value='no' />"+
+                "<param name='toolbar' value='no' />"+
+                "<param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ta&#47;Tablero1-Intro&#47;Tablero1-INTRO&#47;1.png' />"+
+                "<param name='animate_transition' value='yes' />"+
+                "<param name='display_static_image' value='yes' />"+
+                "<param name='display_spinner' value='yes' />"+
+                "<param name='display_overlay' value='yes' />"+
+                "<param name='display_count' value='yes' />"+
+                "<param name='language' value='en' />"+
+            "</object>"+
+        "</div>"+
+        "<script type='text/javascript'>"+
+            "var divElement = document.getElementById('viz1605882710419');"+
+            "var vizElement = divElement.getElementsByTagName('object')[0];"+
+            "vizElement.style.width='100%';"+
+            "vizElement.style.height='"+tamano+"px';"+
+            
+            "var scriptElement = document.createElement('script');"+
+            "scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';"+
+            "vizElement.parentNode.insertBefore(scriptElement, vizElement);"+
+        "</script>"
+    )
+    
 })
 
 function peticion(url,send,metod,async){
