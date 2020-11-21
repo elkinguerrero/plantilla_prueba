@@ -7,6 +7,7 @@ $(document).ready(function(){
         api_key:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDQ1ODY3MzUsImp0aSI6InJHQ3ZISk1KSHFLaExVbEZjUUxSS1ZxYmxDOVJCczdBd3FLTi0wSFpEZzhpV016UkhYUE5oYWFSRlFHYVVleThFQUljeC1JSC1lRkExaGNqIn0.1BWz6BKR1zylSdTjD4dMYFgxUIi-dGctvjF3ORUvunE',
     }
     v_info.url = window.location.origin;
+    console.log("nueva version")
     
     if( window.location.search.split("height=").length > 1 ){
         tamano = window.location.search.split("height=")[1];
