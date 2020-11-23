@@ -1,6 +1,5 @@
-.resource {
-    position: fixed;
-    z-index: 1;
-    top: 20px;
-    right: 20px;
+.lista{
+    width: 100%;
+    padding: 10px 0px;
+    text-align: center;
 }
